@@ -39,7 +39,7 @@ function PostCard({
         <Button
           content="Comments"
           icon="comment"
-          label={{ as: 'a', basic: false, content: commentCount }}
+          label={{ as: 'a', basic: true, content: commentCount }}
           labelPosition="right"
           onClick={commentOnPost}
         />
