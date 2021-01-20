@@ -6,3 +6,9 @@
 .form-container-title {
   text-align: center;
 }
+
+.form-post {
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 15px;
+}
