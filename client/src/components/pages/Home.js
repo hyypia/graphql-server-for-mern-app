@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { Grid, Transition } from 'semantic-ui-react';
+import { Grid, Transition, Loader } from 'semantic-ui-react';
 
 import { AuthContext } from '../../context/auth';
 import { FETCH_POSTS_QUERY } from '../../utils/graphql';
@@ -14,6 +14,11 @@ function Home() {
 
   if (data) {
     posts = { data: data.getPosts };
+  }
+  if (loading) {
+    <Loader active inverted size="big">
+      Loading
+    </Loader>;
   }
 
   return (

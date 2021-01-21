@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-import { Button } from 'semantic-ui-react';
+import { Button, Popup } from 'semantic-ui-react';
 
 function LikeButton({ user, post: { id, likes, likeCount } }) {
   const [liked, setLiked] = useState(false);
@@ -21,20 +21,32 @@ function LikeButton({ user, post: { id, likes, likeCount } }) {
     <>
       {user ? (
         liked ? (
-          <Button
-            content="Like"
-            icon={{ name: 'heart', color: 'red' }}
-            label={{ content: likeCount }}
-            labelPosition="right"
-            onClick={likePost}
+          <Popup
+            content="Unlike"
+            inverted
+            trigger={
+              <Button
+                content="Like"
+                icon={{ name: 'heart', color: 'red' }}
+                label={{ content: likeCount }}
+                labelPosition="right"
+                onClick={likePost}
+              />
+            }
           />
         ) : (
-          <Button
+          <Popup
             content="Like"
-            icon="heart"
-            label={{ content: likeCount }}
-            labelPosition="right"
-            onClick={likePost}
+            inverted
+            trigger={
+              <Button
+                content="Like"
+                icon="heart"
+                label={{ content: likeCount }}
+                labelPosition="right"
+                onClick={likePost}
+              />
+            }
           />
         )
       ) : (
